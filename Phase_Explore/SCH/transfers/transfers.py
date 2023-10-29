@@ -13,8 +13,8 @@ conn = psycopg2.connect(
 cur = conn.cursor()
 
 # Create table
-cursor.execute('''
-    CREATE TABLE school_data(
+cur.execute('''
+    CREATE TABLE IF NOT EXISTS transfers(
         LEA_STATE TEXT,
         LEA_STATE_NAME TEXT,
         LEAID TEXT,
@@ -68,8 +68,16 @@ cursor.execute('''
 conn.commit()
 
 # Open and read the file
-with open('filename.csv', 'r') as f:
-    next(f)  # Skip the header row
-    cursor.copy_from(f, 'school_data', sep=',')
-
+# open the CSV file
+with open('C:/Users/evanj/OneDrive/Desktop/Programming/DataScience/Datathon_2023/Data/2017-18 Public-Use '
+          'Files/Data/SCH/CRDC/CSV/Transfers.csv', 'r') as f:
+    reader = csv.reader(f)
+    next(reader)  # Skip the header row.
+    for row in reader:
+        # insert each row
+        cur.execute(
+            "INSERT INTO transfers VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, "
+            "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            row
+        )
 conn.commit()
