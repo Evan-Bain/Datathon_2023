@@ -4,5 +4,6 @@
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/511833f5-b453-4137-95e6-34fb77f9117a/console.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/Phase_Explore/SCH/advanced_math/advanced_math.py" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/Phase_Explore/SCH/advanced_math/print.py" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/Phase_Explore/SCH/transfers/transfers.py" dialect="GenericSQL" />
   </component>
 </project>
